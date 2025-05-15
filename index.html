@@ -8,8 +8,23 @@ title: Home
   <head>
     <meta charset="utf-8">
     <title>{{ page.title }}</title>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600" rel="stylesheet">
+    <link rel="stylesheet" href="/assets/css/styles.css">
   </head>
   <body>
-    <h1>{{ "wmx666" | downcase }}</h1>
+    <main class="post-content">
+      <h1>欢迎来到我的博客</h1>
+      <p>这里是我分享技术思考和日常感悟的地方。</p>
+      <p>最新文章：</p>
+      <ul>
+        {% for post in site.posts limit:5 %}
+          <li>
+            <a href="{{ site.baseurl }}{{ post.url }}">{{ post.date | date: "%Y年%m月%d日" }} - {{ post.title }}</a>
+          </li>
+        {% endfor %}
+      </ul>
+    </main>
+
+    
   </body>
 </html>

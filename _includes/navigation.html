@@ -1,5 +1,16 @@
-<nav>
-    {% for item in site.data.navigation %}
-      <a href="{{ item.link }}"{% if page.url == item.link %} class="current"{% endif %}>{{ item.name }}</a>
-    {% endfor %}
-  </nav>
+<nav class="navbar">
+  <div class="nav-container">
+    <a href="{{ "/" | relative_url }}" class="brand-logo">王孟熙的博客</a>
+    <ul class="nav-list">
+      <li class="nav-item">
+        <a href="{{ "/" | relative_url }}" class="nav-link">主页</a>
+      </li>
+      <li class="nav-item">
+        <a href="/about" class="nav-link">关于</a>
+      </li>
+      <li class="nav-item">
+        <a href="/blog" class="nav-link">博客</a>
+      </li>
+    </ul>
+  </div>
+</nav>

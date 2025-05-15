@@ -1,7 +1,15 @@
 ---
 layout: default
-title: About
+title: 关于我
 ---
-# About page
+<div class="post-content">
+  <h1>关于我</h1>
+  
+  <div class="about-section">
+    <p>我是王孟熙，一个男人。</p>
+    
 
-This page tells you a little bit about me.
+    <h2>联系方式</h2>
+    <p>Email: 1729379779@qq.com</p>
+  </div>
+</div>

@@ -1,3 +1,42 @@
 ---
 ---
 @import "main";
+
+// 导航栏样式
+.navigation {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 1rem;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    & ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+      & li {
+        margin: 0 1rem;
+        
+        & a {
+          text-decoration: none;
+          color: #333;
+          font-size: 1.1rem;
+          
+          &:hover {
+            color: #007bff;
+          }
+        }
+        
+        &.current-page {
+          a {
+            color: #007bff;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+  

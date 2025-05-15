@@ -1,14 +1,39 @@
 ---
 layout: default
 ---
-<h1>{{ page.title }}</h1>
+<article class="post-content">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-meta">
+      <time datetime="{{ page.date | date_to_xmlschema }}">
+        {{ page.date | date: "%Y年%m月%d日" }}
+      </time>
+      {% assign author = site.authors | where: 'short_name', page.author | first %}
+      {% if author %}
+        <span class="post-author">
+          作者: <a href="{{ author.url }}">{{ author.name }}</a>
+        </span>
+      {% endif %}
+      {% if page.categories.size > 0 %}
+        <span class="post-categories">
+          分类: {{ page.categories | join: ", " }}
+        </span>
+      {% endif %}
+    </div>
+  </header>
 
-<p>
-  {{ page.date | date_to_string }}
-  {% assign author = site.authors | where: 'short_name', page.author | first %}
-  {% if author %}
-    - <a href="{{ author.url }}">{{ author.name }}</a>
-  {% endif %}
-</p>
+  <div class="post-body">
+    {{ content }}
+  </div>
 
-{{ content }}
+  <footer class="post-footer">
+    {% if page.tags.size > 0 %}
+      <div class="post-tags">
+        <span>标签:</span>
+        {% for tag in page.tags %}
+          <a href="/tags/#{{ tag }}" class="tag">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    {% endif %}
+  </footer>
+</article>
